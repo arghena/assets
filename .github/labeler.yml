@@ -1,0 +1,28 @@
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/PULL_REQUEST_TEMPLATE.md'
+          - 'LICENSE'
+          - 'README.md'
+chore:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'assets/**'
+          - 'katharsis/**'
+          - '.github/CODEOWNERS'
+          - '.github/config.yml'
+          - '.gitignore'
+          - '.editorconfig'
+          # WARNING: `*.foo`, `/*.foo`, and `./*.foo` will trigger a recursive glob match.
+          - '.commitlintrc.json'
+          - '.prettierrc.yml'
+          - '.yamllint.yml'
+          - 'changelogithub.config.json'
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/workflows/*.yml'
+          - '.github/dco.yml'
+          - '.github/dependabot.yml'
+          - '.github/labeler.yml'
+          - '.github/title-labeler.yml'

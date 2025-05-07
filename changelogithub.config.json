@@ -1,0 +1,22 @@
+{
+  "types": {
+    "chore": {
+      "title": "🏡 Chore"
+    },
+    "docs": {
+      "title": "📖 Documentation"
+    },
+    "revert": {
+      "title": "🔄 Reverts"
+    },
+    "refactor": {
+      "title": "💅 Refactors"
+    },
+    "style": {
+      "title": "🎨 Styles"
+    },
+    "ci": {
+      "title": "🤖 CI"
+    }
+  }
+}
