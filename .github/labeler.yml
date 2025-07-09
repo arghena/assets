@@ -10,7 +10,6 @@ chore:
           - 'assets/**'
           - 'katharsis/**'
           - '.github/CODEOWNERS'
-          - '.github/config.yml'
           - '.gitignore'
           - '.editorconfig'
           # WARNING: `*.foo`, `/*.foo`, and `./*.foo` will trigger a recursive glob match.
