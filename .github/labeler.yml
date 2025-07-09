@@ -15,6 +15,7 @@ chore:
           # WARNING: `*.foo`, `/*.foo`, and `./*.foo` will trigger a recursive glob match.
           - '.commitlintrc.json'
           - '.prettierrc.yml'
+          - '.typos.toml'
           - '.yamllint.yml'
           - 'changelogithub.config.json'
 ci:
