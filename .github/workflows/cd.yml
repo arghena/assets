@@ -40,7 +40,7 @@ jobs:
         run: |
           base_name="assets-${{ github.ref_name }}"
           tar czf "$base_name.tar.gz" --transform "s,^,$base_name/," \
-          LICENSE assets katharsis
+          LICENSE katharsis
       - name: Releasing assets
         uses: softprops/action-gh-release@v2
         with:
