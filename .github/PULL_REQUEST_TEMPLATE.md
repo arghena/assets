@@ -27,7 +27,6 @@ NOTE: We encourage you to provide as much detail as possible.
 
 <!-- Please check the following before submitting the PR -->
 
-- [ ] I have updated the documentation.
 - [ ] I have updated the CI pipeline.
 - [ ] I have reviewed my changes.
 

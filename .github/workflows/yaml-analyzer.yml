@@ -35,4 +35,4 @@ jobs:
       - name: Run prettier
         run: |
           shopt -s globstar
-          npx prettier@latest .github/**/*.yml ./.*.yml ./*.yml -c --log-level debug
+          npx prettier@latest .github/**/*.yml ./.*.yml -c --log-level debug

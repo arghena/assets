@@ -3,11 +3,9 @@ docs:
       - any-glob-to-any-file:
           - '.github/PULL_REQUEST_TEMPLATE.md'
           - 'LICENSE'
-          - 'README.md'
 chore:
   - changed-files:
       - any-glob-to-any-file:
-          - 'assets/**'
           - 'katharsis/**'
           - '.github/CODEOWNERS'
           - '.gitignore'
