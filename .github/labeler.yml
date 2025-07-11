@@ -3,6 +3,7 @@ docs:
       - any-glob-to-any-file:
           - '.github/PULL_REQUEST_TEMPLATE.md'
           - 'LICENSE'
+
 chore:
   - changed-files:
       - any-glob-to-any-file:
@@ -16,6 +17,7 @@ chore:
           - '.typos.toml'
           - '.yamllint.yml'
           - 'changelogithub.config.json'
+
 ci:
   - changed-files:
       - any-glob-to-any-file:

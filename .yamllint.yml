@@ -1,7 +1,9 @@
 yaml-files:
   - '.github/**/*.yml'
   - '.*.yml'
+
 ignore-from-file: .gitignore
+
 rules:
   anchors:
     forbid-duplicated-anchors: true
