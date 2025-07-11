@@ -10,6 +10,7 @@ chore:
           - '*/**'
           - '.github/CODEOWNERS'
           - '.gitignore'
+          - '.git-blame-ignore-revs'
           - '.editorconfig'
           # WARNING: `*.foo`, `/*.foo`, and `./*.foo` will trigger a recursive glob match.
           - '.commitlintrc.json'
