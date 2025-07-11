@@ -6,7 +6,7 @@ docs:
 chore:
   - changed-files:
       - any-glob-to-any-file:
-          - 'katharsis/**'
+          - '*/**'
           - '.github/CODEOWNERS'
           - '.gitignore'
           - '.editorconfig'
