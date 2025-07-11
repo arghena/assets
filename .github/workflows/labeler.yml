@@ -25,3 +25,5 @@ jobs:
           include-body: 0
       - name: Run labeler
         uses: actions/labeler@v5
+        with:
+          dot: false
