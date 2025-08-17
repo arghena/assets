@@ -1,0 +1,18 @@
+[match]
+dot = true
+
+[pull_request]
+check_title = true
+
+[options.linters]
+yamllint = ["--strict"]
+
+[formatters]
+prettier = ["**/*.yml", "**/*.json"]
+taplo = ["**/*.toml"]
+
+[linters]
+typos = ["**/*", "![a-z0-9-]+/**"]
+yamllint = ["**/*.yml"]
+actionlint = [".github/workflows/*.yml"]
+taplo = ["**/*.toml"]
