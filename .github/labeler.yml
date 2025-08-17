@@ -8,7 +8,9 @@ chore:
   - changed-files:
       - any-glob-to-any-file:
           - '*/**'
+          - '.github/*.yml'
           - '.github/CODEOWNERS'
+          - '.github/insight.toml'
           - '.gitignore'
           - '.git-blame-ignore-revs'
           - '.editorconfig'
@@ -23,7 +25,3 @@ ci:
   - changed-files:
       - any-glob-to-any-file:
           - '.github/workflows/*.yml'
-          - '.github/dco.yml'
-          - '.github/dependabot.yml'
-          - '.github/labeler.yml'
-          - '.github/title-labeler.yml'
