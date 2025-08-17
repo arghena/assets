@@ -12,7 +12,7 @@ prettier = ["**/*.yml", "**/*.json"]
 taplo = ["**/*.toml"]
 
 [linters]
-typos = ["**/*", "!*/*"]
+typos = ["**/*", "!([^.])*/"]
 yamllint = ["**/*.yml"]
 actionlint = [".github/workflows/*.yml"]
 taplo = ["**/*.toml"]
