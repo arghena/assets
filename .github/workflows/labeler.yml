@@ -29,7 +29,7 @@ jobs:
           include-title: 1
           include-body: 0
       - name: Run labeler
-        uses: actions/labeler@v5
+        uses: actions/labeler@v6
         with:
           # https://github.com/arghena/assets/blob/75b39f8b61f216bcfc067fc71e6e63f339766c16/.github/labeler.yml#L10
           dot: false
