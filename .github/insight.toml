@@ -4,7 +4,7 @@ dot = true
 [pull_request]
 check_title = true
 
-[options.linters]
+[args.linters]
 yamllint = ["--strict"]
 
 [formatters]
