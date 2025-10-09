@@ -5,6 +5,40 @@ on:
     tags: ['v[0-9]+.[0-9]+.[0-9]+', 'v[0-9]+.[0-9]+.[0-9]+-canary.[0-9]+']
 
 jobs:
+  archive-assets:
+    name: Archive assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Packaging assets
+        run: |
+          base_name="assets-${{ github.ref_name }}"
+
+          tar czf "$base_name.tar.gz" --transform "s,^,$base_name/," -- */ LICENSE
+      - name: Uploading assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: assets
+          path: assets-${{ github.ref_name }}.tar.gz
+
+  create-attestation:
+    permissions:
+      id-token: write
+      attestations: write
+    needs: archive-assets
+    runs-on: ubuntu-latest
+    name: Create attestation
+    steps:
+      - name: Downloading assets
+        uses: actions/download-artifact@v5
+        with:
+          name: assets
+      - name: Generate attestation
+        uses: actions/attest-build-provenance@v3
+        with:
+          subject-path: assets-${{ github.ref_name }}.tar.gz
+
   create-release-note:
     permissions:
       contents: write
@@ -15,31 +49,16 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+      - name: Downloading assets
+        uses: actions/download-artifact@v5
+        with:
+          name: assets
       - name: Generate release note
         run: |
           if ${{ contains(github.ref_name, 'canary') }}; then
-            npx changelogithub@latest --prerelease
+            npx changelogithub@latest --prerelease --assets "assets-${{ github.ref_name }}.tar.gz"
           else
-            npx changelogithub@latest
+            npx changelogithub@latest --assets "assets-${{ github.ref_name }}.tar.gz"
           fi
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  publish-assets:
-    permissions:
-      contents: write
-    needs: create-release-note
-    name: Publish assets
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-      - name: Packaging assets
-        run: |
-          base_name="assets-${{ github.ref_name }}"
-
-          tar czf "$base_name.tar.gz" --transform "s,^,$base_name/," -- */ LICENSE
-      - name: Releasing assets
-        uses: softprops/action-gh-release@v2
-        with:
-          files: assets-${{ github.ref_name }}.tar.gz
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
