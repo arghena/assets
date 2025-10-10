@@ -55,11 +55,18 @@ jobs:
         with:
           name: assets
       - name: Generate release note
+        # NOTE:
+        # The recommended workflow for publishing an immutable release
+        # will be to initially create the release as a draft,
+        # attach any associated assets, and then publish the draft.
+        # https://github.com/orgs/community/discussions/171210#discussioncomment-14237940
         run: |
           if ${{ contains(github.ref_name, 'canary') }}; then
-            npx changelogithub@latest --prerelease --assets "assets-${{ github.ref_name }}.tar.gz"
+            npx changelogithub@latest --prerelease --draft --assets "assets-${{ github.ref_name }}.tar.gz"
           else
-            npx changelogithub@latest --assets "assets-${{ github.ref_name }}.tar.gz"
+            npx changelogithub@latest --draft --assets "assets-${{ github.ref_name }}.tar.gz"
           fi
+
+          gh release edit "${{ github.ref_name }}" --draft=false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
