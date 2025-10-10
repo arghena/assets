@@ -62,11 +62,12 @@ jobs:
         # https://github.com/orgs/community/discussions/171210#discussioncomment-14237940
         run: |
           if ${{ contains(github.ref_name, 'canary') }}; then
-            npx changelogithub@latest --prerelease --draft --assets "assets-${{ github.ref_name }}.tar.gz"
+            npx changelogithub@latest --prerelease --draft
           else
-            npx changelogithub@latest --draft --assets "assets-${{ github.ref_name }}.tar.gz"
+            npx changelogithub@latest --draft
           fi
 
+          gh release upload "${{ github.ref_name }}" "assets-${{ github.ref_name }}.tar.gz"
           gh release edit "${{ github.ref_name }}" --draft=false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
