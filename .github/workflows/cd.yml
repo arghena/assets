@@ -17,7 +17,7 @@ jobs:
 
           tar czf "$base_name.tar.gz" --transform "s,^,$base_name/," -- */ LICENSE
       - name: Uploading assets
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: assets
           path: assets-${{ github.ref_name }}.tar.gz
