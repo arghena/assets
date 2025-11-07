@@ -9,10 +9,10 @@ yamllint = ["--strict"]
 
 [formatters]
 prettier = ["**/*.yml", "**/*.json"]
-taplo = ["**/*.toml"]
+tombi = ["**/*.toml"]
 
 [linters]
 typos = ["**/*", "![a-z0-9-]+/**"]
 yamllint = ["**/*.yml"]
 actionlint = [".github/workflows/*.yml"]
-taplo = ["**/*.toml"]
+tombi = ["**/*.toml"]
