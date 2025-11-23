@@ -6,6 +6,7 @@ check_title = true
 
 [args.linters]
 yamllint = ["--strict"]
+tombi = ["--error-on-warnings"]
 
 [formatters]
 prettier = ["**/*.yml", "**/*.json"]
