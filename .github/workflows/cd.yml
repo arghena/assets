@@ -31,7 +31,7 @@ jobs:
     name: Create attestation
     steps:
       - name: Downloading assets
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: assets
       - name: Generate attestation
@@ -51,7 +51,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Downloading assets
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: assets
       - name: Generate release note
