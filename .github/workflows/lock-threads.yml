@@ -12,7 +12,7 @@ jobs:
     name: Run lock threads
     steps:
       - name: Lock threads
-        uses: dessant/lock-threads@v5
+        uses: dessant/lock-threads@v6
         with:
           add-pr-labels: 'locked'
           pr-inactive-days: 14
