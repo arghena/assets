@@ -1,19 +1,46 @@
 name: CI
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: true
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   pull_request:
     types: [opened, synchronize, edited]
+
+permissions:
+  contents: read
 
 jobs:
   insight:
     name: Insight
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
+    outputs:
+      any-changed: ${{ steps.insight.outputs.any-changed }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
       - name: Run Insight
+        id: insight
         uses: arghena/insight@v0.1.0-canary.18
+
+  codeql:
+    permissions:
+      contents: read
+      security-events: write
+    name: CodeQL
+    needs: insight
+    if: ${{ github.event_name == 'schedule' || needs.insight.outputs.any-changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: actions
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v4
