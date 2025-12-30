@@ -1,12 +1,14 @@
 name: CI
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha || github.run_id }}
   cancel-in-progress: true
 
 on:
   schedule:
     - cron: '0 0 * * *'
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+', 'v[0-9]+.[0-9]+.[0-9]+-canary.[0-9]+']
   pull_request:
     types: [opened, synchronize, edited]
 
@@ -33,7 +35,7 @@ jobs:
       security-events: write
     name: CodeQL
     needs: insight
-    if: ${{ github.event_name == 'schedule' || needs.insight.outputs.any-changed == 'true' }}
+    if: ${{ github.event_name == 'schedule' || github.ref_type == 'tag' || needs.insight.outputs.any-changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
