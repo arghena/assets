@@ -24,10 +24,10 @@ jobs:
       any-changed: ${{ steps.insight.outputs.any-changed }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Run Insight
         id: insight
-        uses: arghena/insight@v0.1.0-canary.18
+        uses: arghena/insight@7213fb22674afb60fb0a0be8d41a180eafe8789a # v0.1.0-canary.18
 
   codeql:
     permissions:
@@ -45,14 +45,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@5d4e8d1aca955e8d8589aabd499c5cae939e33c7 # v4.31.9
         with:
           build-mode: none
           queries: security-extended,security-and-quality
           languages: actions
       - name: Perform CodeQL analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@5d4e8d1aca955e8d8589aabd499c5cae939e33c7 # v4.31.9
         with:
           category: '/language:actions'
