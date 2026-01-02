@@ -1,11 +1,6 @@
 [match]
 dot = true
 
-[pr]
-check-title = true
-# https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#languages-and-compilers
-detect-changes = [{ actions = [".github/workflows/*.yml"] }]
-
 [args.linters]
 yamllint = ["--strict"]
 tombi = ["--error-on-warnings"]
