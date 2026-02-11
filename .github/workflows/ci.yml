@@ -6,9 +6,9 @@ concurrency:
 
 on:
   pull_request:
-    types: [opened, synchronize]
     paths-ignore:
-      - '*/**'
+      - '**.png'
+      - '**.gif'
 
 permissions:
   contents: read
