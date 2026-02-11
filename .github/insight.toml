@@ -10,7 +10,7 @@ prettier = ["**/*.yml", "**/*.json"]
 tombi = ["**/*.toml"]
 
 [linters]
-typos = ["**/*", "![a-z0-9-]+/**"]
+typos = ["**/*"]
 yamllint = ["**/*.yml"]
 actionlint = [".github/workflows/*.yml"]
 tombi = ["**/*.toml"]
