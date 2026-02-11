@@ -7,8 +7,8 @@ concurrency:
 on:
   pull_request:
     types: [opened, synchronize]
-    paths:
-      - '![a-z0-9-]+/**'
+    paths-ignore:
+      - '*/**'
 
 permissions:
   contents: read
