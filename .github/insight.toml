@@ -1,16 +1,16 @@
 [match]
 dot = true
 
-[args.linters]
-yamllint = ["--strict"]
-tombi = ["--error-on-warnings"]
-
 [formatters]
 prettier = ["**/*.yml", "**/*.json"]
 tombi = ["**/*.toml"]
 
 [linters]
-typos = ["**/*", "![a-z0-9-]+/**"]
+typos = ["**/*", "![a-z-]+/**"]
 yamllint = ["**/*.yml"]
 actionlint = [".github/workflows/*.yml"]
 tombi = ["**/*.toml"]
+
+[args.linters]
+yamllint = ["--strict"]
+tombi = ["--error-on-warnings"]
