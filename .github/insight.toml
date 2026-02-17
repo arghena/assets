@@ -12,5 +12,6 @@ actionlint = [".github/workflows/*.yml"]
 tombi = ["**/*.toml"]
 
 [args.linters]
+commitlint = ["--strict"]
 yamllint = ["--strict"]
 tombi = ["--error-on-warnings"]
