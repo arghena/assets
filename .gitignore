@@ -12,12 +12,12 @@ Session.vim
 *.iml
 .vscode
 .project
-.vim/
-.helix/
-.zed/
+.vim
+.helix
+.zed
 .favorites.json
-.settings/
-.vs/
+.settings
+.vs
 
 ## Temporary Files
 *~
