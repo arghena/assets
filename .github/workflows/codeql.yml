@@ -34,6 +34,8 @@ jobs:
         uses: github/codeql-action/init@9e907b5e64f6b83e7804b09294d44122997950d6 # v4.32.3
         with:
           build-mode: none
+          # https://codeql.github.com/codeql-query-help
+          # https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-queries-in-ql-packs
           queries: security-and-quality
           languages: actions
       - name: Perform CodeQL analysis
