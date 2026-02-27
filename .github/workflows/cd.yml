@@ -19,7 +19,7 @@ jobs:
           base_name="assets-$GITHUB_REF_NAME"
 
           tar czf "$base_name.tar.gz" --transform "s,^,$base_name/," -- */ LICENSE
-      - name: Uploading assets
+      - name: Uploading artifact
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           archive: false
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Create attestation
     steps:
-      - name: Downloading assets
+      - name: Downloading artifact
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: assets-${{ github.ref_name }}.tar.gz
@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
-      - name: Downloading assets
+      - name: Downloading artifact
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: assets-${{ github.ref_name }}.tar.gz
