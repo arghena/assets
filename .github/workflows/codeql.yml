@@ -8,7 +8,6 @@ concurrency:
 on:
   schedule:
     # Runs every Monday.
-    # https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
     - cron: '0 0 * * 1'
   push:
     branches: [canary]
