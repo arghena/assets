@@ -1,4 +1,4 @@
-name: CI
+name: Lint
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
