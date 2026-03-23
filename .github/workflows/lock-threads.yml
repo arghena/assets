@@ -12,7 +12,7 @@ jobs:
   lock-threads:
     permissions:
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     name: Run lock threads
     if: ${{ github.repository_owner == 'arghena' }}
     steps:
