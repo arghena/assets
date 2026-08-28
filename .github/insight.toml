@@ -9,6 +9,7 @@ tombi = ["**/*.toml"]
 typos = ["**/*", "![a-z-]+/**"]
 yamllint = ["**/*.yml"]
 actionlint = [".github/workflows/*.yml"]
+zizmor = [".github/workflows/*.yml", ".github/dependabot.yml"]
 tombi = ["**/*.toml"]
 
 [args.linters]
