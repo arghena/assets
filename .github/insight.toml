@@ -2,14 +2,15 @@
 dot = true
 
 [formatters]
-prettier = ["**/*.yml", "**/*.json"]
+prettier = ["**/*.yml", "**/*.md"]
 tombi = ["**/*.toml"]
 
 [linters]
-typos = ["**/*", "![a-z-]+/**"]
+typos = ["**/*", "!**/*.png", "!**/*.gif"]
 yamllint = ["**/*.yml"]
 actionlint = [".github/workflows/*.yml"]
 zizmor = [".github/workflows/*.yml", ".github/dependabot.yml"]
+markdownlint-cli2 = ["**/*.md"]
 tombi = ["**/*.toml"]
 
 [args.linters]
